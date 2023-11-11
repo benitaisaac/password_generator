@@ -16,8 +16,8 @@ function getUserInput(){
     } 
   userInput.lowerCase = window.confirm("Include lowercase?");
   userInput.upperCase = window.confirm("Include uppercase?");
-  userInput.special = window.confirm("Include special characters?");
-  userInput.numbers = window.confirm("Include numbers?");
+  userInput.specialChar = window.confirm("Include special characters?");
+  userInput.number = window.confirm("Include numbers?");
 
   console.log(userInput);
 }
@@ -30,13 +30,36 @@ function getUserInput(){
 //return this string and send to function writePassword
 
 function generatePassword(){
-  let upperCase = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-  let lowerCase = ["abcdefghijklmnopqrstuvwxyz"];
-  let specialChar = ["!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"];
-  let number = ["0123456789"];
+  let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let lowerCase = "abcdefghijklmnopqrstuvwxyz";
+  let specialChar = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  let number = "0123456789";
 
-  let passwordConcat = 
+  let passwordConcat = "";
+  let finalPassword = "";
+
   getUserInput();
+
+  if(userInput.upperCase){
+    passwordConcat += upperCase //this equals passwordConcat = passwordConcat + uppCase
+  } 
+  if(userInput.lowerCase){
+    passwordConcat += lowerCase 
+  }
+  if(userInput.specialChar){
+    passwordConcat += specialChar
+  }
+  if(userInput.number){
+    passwordConcat += number
+  }
+
+  console.log(passwordConcat);
+
+  for (let i=0; i < userInput.length; i++){
+    finalPassword = finalPassword + passwordConcat[Math.floor((Math.random()) * passwordConcat.length)];
+  }
+
+  return finalPassword;
 }
 
 
