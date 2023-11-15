@@ -13,6 +13,7 @@ function getUserInput(){
   userInput.length = Number(window.prompt("Password Length (8-128)", ""));
     if (userInput.length < 8 || userInput.length > 128){
       window.alert("Please enter a valid number");
+      getUserInput();
     } 
   userInput.lowerCase = window.confirm("Include lowercase?");
   userInput.upperCase = window.confirm("Include uppercase?");
