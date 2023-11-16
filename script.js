@@ -19,6 +19,10 @@ function getUserInput(){
   userInput.upperCase = window.confirm("Include uppercase?");
   userInput.specialChar = window.confirm("Include special characters?");
   userInput.number = window.confirm("Include numbers?");
+    if (!userInput.lowerCase && !userInput.upperCase && !userInput.specialChar && !userInput.number ){
+      window.alert("Please select 'ok' for at least one category");
+      getUserInput();
+    }
 
   console.log(userInput);
 }
